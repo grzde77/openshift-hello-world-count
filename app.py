@@ -35,5 +35,10 @@ def hello_world():
     # Return the "Hello World" message along with the count
     return f"Hello, World! This page has been visited {count} times.\n"
 
+@app.route("/api/visits")
+def api_visits():
+    count = read_count()
+    return jsonify({"visits": count})
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
